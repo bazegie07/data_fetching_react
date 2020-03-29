@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import {Link, Router } from '@reach/router';
+import Homepage from './views/Homepage';
+import Secondary from './views/Secondary';
+import Launches from './views/Lunches';
+import SingleLunch from './views/SingleLaunch';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <Link to="/">Homepage</Link>
+        <Link to="secondary">Second page</Link>
+        <Link to="launches">Launches</Link>
+      </div>
+    <Router>
+      <Homepage path="/" />
+      <Secondary path="secondary"/>
+      <Launches path="launches"/>
+      <SingleLunch path="launches/:id"/>
+    </Router>
     </div>
   );
 }
